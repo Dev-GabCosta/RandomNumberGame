@@ -6,7 +6,7 @@ public class Main {
 	private static final Scanner input = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		int computerNumber = RANDOM.nextInt(10);
+		int computerNumber = generateNumber(9);
 		int[] correctNumbers = new int[50];
 		int[] wrongNumbers = new int[50];
 		int userNumber = 0;
@@ -66,14 +66,14 @@ public class Main {
 				switch (level) {
 					case 2:
 						System.out.println("Hmm, você foi bem até aqui. Reconheço: você tem coragem ao continuar. Mas já aviso   que ficará um pouco mais difícil.");
-						System.out.println("Nível: médio. Agora você escolhe números de 0 a 50");
-						computerNumber = RANDOM.nextInt(50);
+						System.out.println("Nível: médio. Agora você escolhe números de 0 a 50.");
+						computerNumber = generateNumber(49);
 						break;
 					case 3:
 						System.out.println("Ok, admito. Você é bom!");
-						System.out.println("Então você quer continuar, não é?");
-						System.out.println("Nível: difícil. Aqui, você pode escolher números de 0 a 100");
-						computerNumber = RANDOM.nextInt(100);
+						System.out.println("Então você quer continuar, não é? Te respeito por sua coragem, mas acho que você vai se arrepender dessa escolha.");
+						System.out.println("Nível: difícil. Aqui, você pode escolher números de 0 a 100.");
+						computerNumber = RANDOM.nextInt(99);
 						break;
 					default:
 						break;
@@ -84,7 +84,7 @@ public class Main {
 		} while (!isCorrect);
 
 		System.out.printf("Ok, Esses foram seus resultados finais:\n");
-displaySummary(countSuccesses, countErrors, correctNumbers, wrongNumbers);
+		displaySummary(countSuccesses, countErrors, correctNumbers, wrongNumbers);
 		System.out.println("Espero que tenha se divertido! Até a próxima!");
 	}
 
@@ -122,37 +122,37 @@ displaySummary(countSuccesses, countErrors, correctNumbers, wrongNumbers);
 		if (level == 1) {
 			interval = 3;
 
-			if (computer - user > interval) {
+			if (computer - user >= interval) {
 				message = "O número que eu escolhi é maior";
 			}
 
-			if (user - computer > interval) {
+			if (user - computer >= interval) {
 				message = "O número que eu escolhi é menor";
 			}
 
 		}
 
 		if (level == 2) {
-			interval = 10;
+			interval = 6;
 
-			if (computer - user > interval) {
+			if (computer - user >= interval) {
 				message = "O número que eu escolhi é maior";
 			}
 
-			if (user - computer > interval) {
+			if (user - computer >= interval) {
 				message = "O número que eu escolhi é menor";
 			}
 
 		}
 
 		if (level == 3) {
-			interval = 15;
+			interval = 10;
 
-			if (computer - user > interval) {
+			if (computer - user >= interval) {
 				message = "O número que eu escolhi é maior";
 			}
 
-			if (user - computer > interval) {
+			if (user - computer >= interval) {
 				message = "O número que eu escolhi é menor";
 			}
 
@@ -161,7 +161,7 @@ displaySummary(countSuccesses, countErrors, correctNumbers, wrongNumbers);
 		System.out.println(message);
 	}
 
-	private static void displaySummary(int successes, int errors, int[]correctNumbers, int[]wrongNumbers) {
+	private static void displaySummary(int successes, int errors, int[] correctNumbers, int[] wrongNumbers) {
 
 		if (successes == 1) {
 			System.out.printf("Você acertou o número %d ", correctNumbers[0]);
@@ -190,4 +190,9 @@ displaySummary(countSuccesses, countErrors, correctNumbers, wrongNumbers);
 		}
 
 	}
+
+	private static int generateNumber(int number) {
+		return RANDOM.nextInt(number) + 1;
+	}
+
 }
