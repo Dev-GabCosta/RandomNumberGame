@@ -89,7 +89,7 @@ public class Main {
 		} while (!isCorrect);
 
 		System.out.printf("Ok, Esses foram seus resultados finais:\n");
-		displaySummary(countSuccesses, countErrors, correctNumbers, wrongNumbers);
+		displaySummary(totalUserPoints, countSuccesses, countErrors, correctNumbers, wrongNumbers);
 		System.out.println("Espero que tenha se divertido! Até a próxima!");
 	}
 
@@ -166,7 +166,8 @@ public class Main {
 		System.out.println(message);
 	}
 
-	private static void displaySummary(int successes, int errors, int[] correctNumbers, int[] wrongNumbers) {
+	private static void displaySummary(int total, int successes, int errors, int[] correctNumbers, int[] wrongNumbers) {
+		System.out.println("No total você obteve " + total + " pontos.");
 
 		if (successes == 1) {
 			System.out.printf("Você acertou o número %d ", correctNumbers[0]);
