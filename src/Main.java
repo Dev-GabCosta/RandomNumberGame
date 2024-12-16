@@ -84,32 +84,8 @@ public class Main {
 		} while (!isCorrect);
 
 		System.out.printf("Ok, Esses foram seus resultados finais:\n");
-		if (countSuccesses == 1) {
-			System.out.printf("Você acertou o número %d ", correctNumbers[0]);
-		} else {
-			System.out.printf("Você acertou os números");
-
-			for (int n = 0; n < countSuccesses; n++) {
-				System.out.printf(" %d, ", correctNumbers[n]);
-			}
-
-			System.out.printf("%d", correctNumbers[countSuccesses]);
-		}
-
-		if (countErrors == 1) {
-			System.out.printf("e errou o número %d", wrongNumbers[0]);
-		} else if (countErrors > 1) {
-			System.out.printf(" e errou os números");
-
-			for (int n = 0; n < countErrors - 1; n++) {
-				System.out.printf("%d, ", wrongNumbers[n]);
-			}
-
-			System.out.printf("%d.\n", wrongNumbers[countErrors - 1]);
-		} else {
-			System.out.printf(" e não errou nenhum número. Parabéns!");
-		}
-
+displaySummary(countSuccesses, countErrors, correctNumbers, wrongNumbers);
+		System.out.println("Espero que tenha se divertido! Até a próxima!");
 	}
 
 	private static int comparesNumbers(int computer, int user) {
@@ -185,4 +161,33 @@ public class Main {
 		System.out.println(message);
 	}
 
+	private static void displaySummary(int successes, int errors, int[]correctNumbers, int[]wrongNumbers) {
+
+		if (successes == 1) {
+			System.out.printf("Você acertou o número %d ", correctNumbers[0]);
+		} else {
+			System.out.printf("Você acertou os números");
+
+			for (int n = 0; n < successes; n++) {
+				System.out.printf(" %d, ", correctNumbers[n]);
+			}
+
+			System.out.printf("%d", correctNumbers[successes]);
+		}
+
+		if (errors == 1) {
+			System.out.printf("e errou o número %d", wrongNumbers[0]);
+		} else if (errors > 1) {
+			System.out.printf(" e errou os números");
+
+			for (int n = 0; n < errors - 1; n++) {
+				System.out.printf("%d, ", wrongNumbers[n]);
+			}
+
+			System.out.printf("%d.\n", wrongNumbers[errors - 1]);
+		} else {
+			System.out.printf(" e não errou nenhum número. Parabéns!");
+		}
+
+	}
 }
