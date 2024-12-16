@@ -25,7 +25,7 @@ public class Main {
 
 			if (i == 0) {
 				System.out.println("Então vamos lá! Em que número você acha que eu estou pensando? tic tac, tic tac...");
-				System.out.println("Nível: fácil. Nesse nível, você escolhe números de 0 a 10.");
+				System.out.println("Nível: fácil. Nesse nível, você escolhe números de 1 a 10.");
 				userNumber = input.nextInt();
 			} else {
 				givTip(computerNumber, userNumber, level);
@@ -66,13 +66,13 @@ public class Main {
 				switch (level) {
 					case 2:
 						System.out.println("Hmm, você foi bem até aqui. Reconheço: você tem coragem ao continuar. Mas já aviso   que ficará um pouco mais difícil.");
-						System.out.println("Nível: médio. Agora você escolhe números de 0 a 50.");
+						System.out.println("Nível: médio. Agora você escolhe números de 1 a 50.");
 						computerNumber = generateNumber(49);
 						break;
 					case 3:
 						System.out.println("Ok, admito. Você é bom!");
 						System.out.println("Então você quer continuar, não é? Te respeito por sua coragem, mas acho que você vai se arrepender dessa escolha.");
-						System.out.println("Nível: difícil. Aqui, você pode escolher números de 0 a 100.");
+						System.out.println("Nível: difícil. Aqui, você pode escolher números de 1 a 100.");
 						computerNumber = RANDOM.nextInt(99);
 						break;
 					default:
