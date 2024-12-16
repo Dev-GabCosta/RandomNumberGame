@@ -51,6 +51,11 @@ public class Main {
 				countErrors++;
 			}
 
+
+			if(level== 3 && isCorrect == true) {
+				break;
+			}
+
 			if (isCorrect) {
 				System.out.println("Você acertou o número que eu estava 'pensando'. Quer continuar jogando? (1 para sim, 0 para não)");
 				int answer = input.nextInt();
